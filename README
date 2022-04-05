@@ -31,6 +31,8 @@ echo "* annex.largefiles=(((mimeencoding=binary)and(largerthan=0))or((include=*t
 
 Copy all connectomes and timeseries file, and copy the `participants.tsv` file.
 
+Create a git repository on github.com:ccna-biomarkers/ccna-timeseries.git
+
 Finally, configure the git remote and push files:
 ```
 git remote add github git@github.com:ccna-biomarkers/ccna-timeseries.git
