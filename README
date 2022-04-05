@@ -1,0 +1,40 @@
+# ccna-timeseries
+
+This project contains timeseries and connectome for the CCNA dataset 2020 release.
+Features were extracted using https://github.com/ccna-biomarkers/ccna_ts_extraction.
+
+## Installation
+
+### Software pre-requisites
+
+For dataset management, we are using datalad.
+To install datalad, first make sure that you have [git-annex](https://git-annex.branchable.com/install/) installed.
+Then you can:
+```
+pip install datalad
+```
+
+### Usage
+
+Data is stored on criugm servers and can be downloaded if you can log-in to `elm`.
+
+
+
+### For maintainers
+
+Once loged-in on elm, create a datalad dataset:
+```
+ssh elm
+datalad create -c text2git ccna-timeseries && ccna-timeseries
+echo "* annex.largefiles=(((mimeencoding=binary)and(largerthan=0))or((include=*timeseries.tsv)or(include=*connectome.tsv)))" >> .gitattributes
+```
+
+Copy all connectomes and timeseries file, and copy the `participants.tsv` file.
+
+Finally, configure the git remote and push files:
+```
+git remote add github git@github.com:ccna-biomarkers/ccna-timeseries.git
+datalad push --to github
+```
+
+Optionnally, you can make sure the `main` branch is indeed the default, if not update it in the github setting.
